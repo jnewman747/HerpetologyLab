@@ -98,21 +98,28 @@
     }
 
 
-    .leaflet-control-layers{
-        font-family: "Lato", sans-serif;
-        width: 100px;
-        background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        font-size: 1em;
-        font-weight: 700;
-        line-height: 1.4em;
-    }
+ /* Use float property to make two-column layout */
 
-    .leaflet-popup, .leaflet-tooltip {
-        font-family: "Lato", sans-serif;
-        font-size: 1em;
-        line-height: 1.4em;
-    }
+ .first-column {
+            float: left;
+            width: 48%;
+            padding-right: 5px;
+        }
+
+        .column {
+            float: left;
+            width: 48%;
+        }
+
+        /* Clear floats after the columns */
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+      
 
     
     
@@ -128,7 +135,7 @@
   <div class="row">
     <div id='map'></div>
 
-    
+    <div class="first-column">
       <p>Dr. Steve Price is a professor within the Forestry and Natural Resources Department at the University of Kentucky. He earned his B.S. (2000) and M.S. (2003) from
         the University of Wisconsin-Green Bay and his PhD from Wake Forest (2011). He was employed at Davidson College
         as a Research Coordinator, faculty, and post-doc from 2004-2012. His research focuses on ecology and
@@ -141,10 +148,7 @@
       </p>
       <p>Map authored by Jill Newman</p>
 
-      <img id='picture' src="images/price.JPG" height="400" alt="Dr. Price teaching">
-      <div class="linkbox">
-        <h3>Steve Price teaching at Robinson Forest</h3>
-      </div>
+      
 <br>
       
       <p><b>Social links</b></p>
@@ -156,7 +160,14 @@
         </li>
       </ul>
 
-    
+    </div>
+    <div class="column">
+      <img id='picture' src="images/Steve.JPG" alt="Dr. Price teaching">
+      <div class="linkbox">
+        <h3>Steve Price teaching at Robinson Forest</h3>
+      </div>
+
+    </div>
     
     
     
