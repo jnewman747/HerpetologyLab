@@ -1,6 +1,6 @@
-# HerpetologyLab
+### HerpetologyLab
 
-### Herpetology Lab at the University of Kentucky
+# Herpetology Lab at the University of Kentucky
 
 ## Data Source
 
@@ -22,8 +22,8 @@ Dot map showing different research projects in Kentucky and other states. Pop-up
 
 ### Mockups
 
-![Newman_mockup1.jpg"](Newman_mockup1.jpg)
-![Newman_mockup2.jpg"](Newman_mockup2.jpg)
+![images/Newman_mockup1.jpg"](Newman_mockup1.jpg)
+![images/Newman_mockup2.jpg"](Newman_mockup2.jpg)
 
 
 
@@ -65,8 +65,7 @@ A title and sub-heading will be above the map. Below the map will be a paragraph
 This is intended to be informational. I hope to share some information about Price Lab research projects with the users.
 
 
+
 ## Article citations
 
-For additional information about the research projects outlined in this map, check out this webpage:
-
-https://pricelab.ca.uky.edu/publications
+For additional information about the research projects outlined in this map, check out this webpage: https://pricelab.ca.uky.edu/publications
