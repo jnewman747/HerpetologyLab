@@ -256,39 +256,69 @@ a:active {
 
     //***********************************************************************
 
-    // AJAX request for GeoJSON data
-    //  fetch("data/us-counties.json")
-    //       .then(function (response) {
-    //         console.log(response);
-    //         return response.json();
-    //       }).addTo(map);
 
-    //       var counties = L.geoJson(counties, {
-    //     onEachFeature: function (feature, layer) {
-    //       let tooltip =
-    //         `<strong>Title: </strong> ${layer.feature.properties.title}<br>Blurb: ${layer.feature.properties.description}`;
-    //       layer.bindTooltip(
-    //         tooltip); //This code block adds a popup with project title and blurb
-    //     },
-    //     pointToLayer: function (feature, latlng) {
-    //       return L.circleMarker(latlng);
-    //     },
-    //     filter: function (feature) {
-    //       if (feature.properties.title) {
-    //         return feature;
-    //       }
-    //     },
-    //     style: function (feature) {
-    //       return {
-    //         color: '#FFFFFF',
-    //         fillColor: '#0000FF',
-    //         weight: 2,
-    //         stroke: 1,
-    //         fillOpacity: .8,
+    //Add county layer
+    fetch("data/us-counties.json")
+  .then(function(response) {
+      return response.json();
+  })
+  .then(function(counties) {
+    const dataLayer = L.geoJson(counties, {
+      style: function (feature) {
+        return {
+        color: "#dddddd",
+            weight: 0.3,
+            fillOpacity: 0,
+            fillColor: "#1f78b4",
+          };
+      },
+      }).addTo(map);
+      // call to new function here gets the data out of the
+      // callback function
+      drawMap(dataLayer);
+      return fetch("data/us_states_500k.geojson")
+      })
+      .then(function (response) {
+        return response.json()
+      })
+      .then(function (dataLayer) {
+        drawAnotherLayer(dataLayer)
+      })
+      // If there is an error, log it to the console
+      .catch(function (error) {
+        console.log(error);
+    });
 
-    //       }
-    //     }
-    //   }).addTo(map);
+ 
+  function drawMap(dataLayer) {
+  // we now have access to dataLayer here!
+}
+
+
+
+    //Border of KY is in black
+    function drawAnotherLayer(dataLayer) {
+      L.geoJson(counties, {
+        style: function (feature) {
+          return {
+            color: "#255",
+            // Make line weight larger than the county outline
+            weight: 4,
+            fillOpacity: 0,
+            // This property allows us control interactivity of layer
+            interactive: false,
+          };
+        },
+        // Filter for the correct state to use
+        filter: function (feature) {
+
+          if (feature.properties.NAME == "Kentucky") {
+            return feature;
+          }
+        },
+      }).addTo(map);
+    }
+
 
 
 
