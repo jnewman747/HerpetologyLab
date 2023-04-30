@@ -22,8 +22,8 @@ Dot map showing different research projects in Kentucky and other states. Pop-up
 
 ### Mockups
 
-!["mockups/Newman_mockup1.jpg"](Newman_mockup1.jpg)
-!["mockups/Newman_mockup2.jpg"](Newman_mockup2.jpg)
+![mockups/Newman_mockup1.jpg"](mockups/Newman_mockup1.jpg)
+![Newman_mockup2.jpg"](Newman_mockup2.jpg)
 
 
 
