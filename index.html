@@ -287,7 +287,7 @@
           style: function (feature) {
             return {
               color: "#dddddd",
-              weight: 0.3,
+              weight: 0.1,
               fillOpacity: 0,
               fillColor: "#1f78b4",
             };
@@ -297,17 +297,7 @@
         // callback function
         drawMap(dataLayer);
         //Add states layer
-        return fetch("data/us_states_500k.geojson")
-      })
-      .then(function (response) {
-        return response.json()
-      })
-      .then(function (data, state) {
-        drawAnotherLayer(state)
-      })
-      // If there is an error, log it to the console
-      .catch(function (error) {
-        console.log(error);
+    
       });
 
 
@@ -316,32 +306,31 @@
     }
 
 
+//Add states layer
+    fetch("data/us_states_500k.geojson")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (state) {
+        const dataLayer2 = L.geoJson(state, {
+          style: function (feature) {
+            return {
+              color: "#dddddd",
+              weight: 0.5,
+              fillOpacity: 0,
+              fillColor: "#1f78b4",
+            };
+          },
+        }).addTo(map);
+        // call to new function here gets the data out of the
+        // callback function
+        drawMap(dataLayer2);
+      
+      });
 
-    //Border of KY is in black
-    function drawAnotherLayer(dataLayer) {
-      L.geoJson(state, {
-        style: function (feature) {
-          return {
-            color: "#255",
-            // Make line weight larger than the county outline
-            weight: 4,
-            fillOpacity: 0,
-            // This property allows us control interactivity of layer
-            interactive: false,
-          };
-        },
-        // Filter for the correct state to use
-        filter: function (feature) {
-
-          if (feature.properties.NAME == "Kentucky") {
-            return feature;
-          }
-        },
-      }).addTo(map);
+      function drawMap(dataLayer2) {
+      // we now have access to dataLayer here!
     }
-
-
-
 
 
 
@@ -361,7 +350,6 @@
     //Color matches color within map
     var sourcesLayers = {
       "<b style='color:#0000FF'>Projects</b>": projects
-
     }
 
 
