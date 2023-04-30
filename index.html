@@ -99,8 +99,26 @@
 
 
 
+    a:link {
+  color: rgb(22, 164, 207);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(22, 164, 207);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(239, 236, 236);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
 a:active {
-  color: gray;
+  color: rgb(22, 164, 207);
   background-color: transparent;
   text-decoration: underline;
 }
@@ -276,13 +294,14 @@ a:active {
       // call to new function here gets the data out of the
       // callback function
       drawMap(dataLayer);
+      //Add states layer
       return fetch("data/us_states_500k.geojson")
       })
       .then(function (response) {
         return response.json()
       })
-      .then(function (dataLayer) {
-        drawAnotherLayer(dataLayer)
+      .then(function (data, state) {
+        drawAnotherLayer(state)
       })
       // If there is an error, log it to the console
       .catch(function (error) {
@@ -298,7 +317,7 @@ a:active {
 
     //Border of KY is in black
     function drawAnotherLayer(dataLayer) {
-      L.geoJson(counties, {
+      L.geoJson(state, {
         style: function (feature) {
           return {
             color: "#255",
