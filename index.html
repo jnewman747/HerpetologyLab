@@ -16,7 +16,7 @@
     body {
       margin: 0;
       padding: 0;
-      background: rgb(42, 42, 42);
+      background: #10295b;
       font-family: "Roboto", sans-serif;
       font-size: 100%;
       font-weight: 300;
@@ -41,19 +41,19 @@
 
     h2 {
       display: inline-block;
-      color: #491acb;
+      color: #009bda;
       letter-spacing: 0.05em;
       margin-top: 0px;
       font-weight: 300;
       text-transform: uppercase;
       /*  Stack text shadows.  */
-      text-shadow: 0 0 30px #05079d, 0 0 40px #0d05a1, 0 0 50px #1c19c2, 0 0 80px #0f1ae6;
+      text-shadow: 0 0 30px #c7c9c8, 0 0 40px #d3dfd9, 0 0 50px #a9abaa, 0 0 80px #e4f2eb;
     }
 
     h3 {
-      padding: 6px 10%;
+      padding: 4px 10%;
       margin: 0 auto;
-      width: 80%;
+      width: 60%;
       font-size: 1em;
       color: rgba(170, 170, 170);
       ;
@@ -96,6 +96,16 @@
       height: 340px;
       padding: 6px 10%;
     }
+
+
+
+a:active {
+  color: gray;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
 
 
  /* Use float property to make two-column layout */
@@ -146,6 +156,9 @@
       <p>The above interactive map displays information regarding different projects in the Price Lab. Click on the
         projects to find out more about them!
       </p>
+
+      <p>Information from this map was collected from the <a href="https://pricelab.ca.uky.edu/">Price Lab</a></li>. Additional information about individual projects can be found <a href="https://pricelab.ca.uky.edu/publications">here</a></li>.
+      </p>
       <p>Map authored by Jill Newman</p>
 
       
@@ -162,9 +175,9 @@
 
     </div>
     <div class="column">
-      <img id='picture' src="images/Steve.JPG" alt="Dr. Price teaching">
+      <img src="images/Steve.JPG" height=400 width=600 alt="Dr. Price in the field">
       <div class="linkbox">
-        <h3>Steve Price teaching at Robinson Forest</h3>
+        <h3>Dr. Price looking for amphibians in West Virginia (2022)</h3>
       </div>
 
     </div>
@@ -179,7 +192,7 @@
   </footer>
   <!-- Is the is the latest version of Leaflet? -->
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
-  <script src="data/power-plants.js"></script>
+  <script src="data/projects.js"></script>
   <script>
     var map = L.map('map', {
       center: [38, -84],
