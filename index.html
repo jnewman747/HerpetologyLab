@@ -219,9 +219,9 @@ a:active {
     var projects = L.geoJson(projects, {
       onEachFeature: function (feature, layer) {
         let popup =
-          `<b>Title: </b> ${layer.feature.properties.title}<br>Description: ${layer.feature.properties.description}`;
+          `${layer.feature.properties.title}<br><i>Years</i>: ${layer.feature.properties.years}<br><br>${layer.feature.properties.description}`;
         layer.bindPopup(
-          popup); //This code block adds a popup with project title and blurb
+          popup); //This code block adds a popup with project title, years, and blurb
       },
       pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng);
