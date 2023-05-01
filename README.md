@@ -29,7 +29,7 @@ Dot map showing different research projects in Kentucky and other states. Pop-up
 
 ## Map Objectives and User Needs
 
-This map is necessary to highlight research in the Herpetology Lab at the University of Kentucky. This lab has many recent and active projects, most of which with publications (https://pricelab.ca.uky.edu/publications). It is vital to disseminate information within a research field. 
+This map is necessary to highlight research in the Herpetology Lab at the University of Kentucky. This lab has many recent and active projects, most of which have associated publications (https://pricelab.ca.uky.edu/publications). It is vital to disseminate information within a research field. 
 
 
 I'm designing this map because I am a Research Analyst in the Price lab and thus I'm familiar with Dr. Price and his research projects. I myself am a conservation biologist who is passionate about preserving wildlife, paticularly herpetofauna. I have 10+ years of experience working with threatened and endangered species.
