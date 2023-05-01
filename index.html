@@ -60,26 +60,23 @@
       width: 60%;
       font-size: 1em;
       color: rgba(170, 170, 170);
-      ;
       font-weight: 300;
       font-size: 0.9em;
     }
 
 
     #map {
-      width: 80%;
+      width: 100%;
       height: 540px;
       margin: 10px auto;
     }
 
 
     p {
-      padding: 6px 10%;
+      padding: 6px 0;
       margin: 0 auto;
-      width: 80%;
       font-size: 1em;
       color: rgba(170, 170, 170);
-      ;
       font-weight: 300;
       font-size: 1.2em;
     }
@@ -95,10 +92,10 @@
     }
 
 
-    #picture {
-      width: 290px;
-      height: 340px;
-      padding: 6px 10%;
+    .picture {
+      width: 100%;
+      /* height: 340px; */
+      padding: 6px 0;
     }
 
 
@@ -134,13 +131,13 @@
 
     .first-column {
       float: left;
-      width: 48%;
-      padding-right: 5px;
+      width: 49%;
+      padding-right: 2%;
     }
 
     .column {
       float: left;
-      width: 48%;
+      width: 49%;
     }
 
     /* Clear floats after the columns */
@@ -159,52 +156,51 @@
     <br />
     <h2>Price's Projects (2013-Present)</h2>
   </header>
-  <div class="row">
-    <div id='map'></div>
+  <section>
+    <div class="row">
+      <div id='map'></div>
 
-    <div class="first-column">
-      <p>Dr. Steve Price is a professor within the Forestry and Natural Resources Department at the University of
-        Kentucky. He earned his B.S. (2000) and M.S. (2003) from
-        the University of Wisconsin-Green Bay and his PhD from Wake Forest (2011). He was employed at Davidson College
-        as a Research Coordinator, faculty, and post-doc from 2004-2012. His research focuses on ecology and
-        conservation
-        of aquatic and semi-aquatic organisms (particularly reptiles and amphibians) in Kentucky and its surrounding
-        states.</p>
+      <div class="first-column">
+        <p>Dr. Steve Price is a professor within the Forestry and Natural Resources Department at the University of
+          Kentucky. He earned his B.S. (2000) and M.S. (2003) from
+          the University of Wisconsin-Green Bay and his PhD from Wake Forest (2011). He was employed at Davidson College
+          as a Research Coordinator, faculty, and post-doc from 2004-2012. His research focuses on ecology and
+          conservation
+          of aquatic and semi-aquatic organisms (particularly reptiles and amphibians) in Kentucky and its surrounding
+          states.</p>
 
-      <p>The above interactive map displays information regarding different projects in the Price Lab. Click on the
-        projects to find out more about them!
-      </p>
+        <p>The above interactive map displays information regarding different projects in the Price Lab. Click on the
+          projects to find out more about them!
+        </p>
 
-      <p>Information from this map was collected from the <a href="https://pricelab.ca.uky.edu/research-topics-and-current-projects">Price Lab</a></li>.
-        Additional information about individual projects can be found <a
-          href="https://pricelab.ca.uky.edu/publications">here</a></li>.
-      </p>
-      <p>Map authored by Jill Newman</p>
+        <p>Information from this map was collected from the <a
+            href="https://pricelab.ca.uky.edu/research-topics-and-current-projects">Price Lab</a></li>.
+          Additional information about individual projects can be found <a
+            href="https://pricelab.ca.uky.edu/publications">here</a></li>.
+        </p>
+        <p>Map authored by Jill Newman</p>
 
 
-      <br>
+        <br>
 
-      <p><b>Social links</b></p>
-      <ul>
-        <li>See my projects on GitHub: <a href="https://github.com/newmapsplus/map672-mod-01-jnewman747">mapping
-            portfolio</a></li>
-        <li>Follow me on Twitter: <a href="https://twitter.com/PriceHerpLab">@PriceHerpLab</a></li>
-        <li>Follow me on Facebook: <a href="https://www.facebook.com/PriceHerpLab/">Price Herp Lab at UK</a>
-        </li>
-      </ul>
+        <p><b>Social links</b></p>
+        <ul>
+          <li>See my projects on GitHub: <a href="https://github.com/newmapsplus/map672-mod-01-jnewman747">mapping
+              portfolio</a></li>
+          <li>Follow me on Twitter: <a href="https://twitter.com/PriceHerpLab">@PriceHerpLab</a></li>
+          <li>Follow me on Facebook: <a href="https://www.facebook.com/PriceHerpLab/">Price Herp Lab at UK</a>
+          </li>
+        </ul>
 
-    </div>
-    <div class="column">
-      <img src="images/Steve.JPG" height=400 width=600 alt="Dr. Price in the field">
-      <div class="linkbox">
-        <h3>Dr. Price looking for amphibians in West Virginia (2022)</h3>
       </div>
-
+      <div class="column">
+        <img src="images/Steve.JPG" class='picture' alt="Dr. Price in the field">
+        <div class="linkbox">
+          <h3>Dr. Price looking for amphibians in West Virginia (2022)</h3>
+        </div>
+      </div>
     </div>
-
-
-
-  </div>
+  </section>
 
   <footer>
 
@@ -271,7 +267,7 @@
 
 
 
-      //***********
+    //***********
     //Reptiles Layer; GeoJSON
     //***********
     var reptileslayer = L.geoJson(projects, {
@@ -308,7 +304,7 @@
     }
 
 
-      //***********
+    //***********
     //Mussels Layer; GeoJSON
     //***********
     var musselslayer = L.geoJson(projects, {
@@ -372,7 +368,7 @@
         // callback function
         // drawMap(dataLayer);
         //Add states layer
-    
+
       });
 
 
@@ -381,28 +377,28 @@
     // }
 
 
-//Add states layer
-fetch("data/us_states_500k.geojson")
-       .then(function (response) {
-         return response.json();
-       })
-       .then(function (state) {
-         const dataLayer2 = L.geoJson(state, {
-           style: function (feature) {
-             return {
-               color: "#dddddd",
-               weight: 0.5,
-               fillOpacity: 0,
-               fillColor: "#1f78b4",
-               interactive: false,
-             };
-           },
-         }).addTo(map);
-         // call to new function here gets the data out of the
-         // callback function
+    //Add states layer
+    fetch("data/us_states_500k.geojson")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (state) {
+        const dataLayer2 = L.geoJson(state, {
+          style: function (feature) {
+            return {
+              color: "#dddddd",
+              weight: 0.5,
+              fillOpacity: 0,
+              fillColor: "#1f78b4",
+              interactive: false,
+            };
+          },
+        }).addTo(map);
+        // call to new function here gets the data out of the
+        // callback function
         //  drawMap(dataLayer2);
-      
-       });
+
+      });
 
     //    function drawMap(dataLayer2) {
     //    // we now have access to dataLayer here!
@@ -492,8 +488,8 @@ fetch("data/us_states_500k.geojson")
 
 
 
-    
-    
+
+
   </script>
 
 </body>
