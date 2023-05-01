@@ -234,20 +234,20 @@
 
 
     //***********
-    //Projects Layer; GeoJSON
+    //Amphibians Layer; GeoJSON
     //***********
-    var projects = L.geoJson(projects, {
+    var amphibianslayer = L.geoJson(projects, {
       onEachFeature: function (feature, layer) {
         let popup =
-          `${layer.feature.properties.title}<br><i>Years</i>: ${layer.feature.properties.years}<br><br>${layer.feature.properties.description}`;
+          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br>Description: ${layer.feature.properties.description}`;
         layer.bindPopup(
-          popup); //This code block adds a popup with project title, years, and blurb
+          popup); //This code block adds a popup with project title and blurb
       },
       pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng);
       },
       filter: function (feature) {
-        if (feature.properties.title) {
+        if (feature.properties.taxa.amphibian) {
           return feature;
         }
       },
@@ -271,66 +271,140 @@
 
 
 
+      //***********
+    //Reptiles Layer; GeoJSON
+    //***********
+    var reptileslayer = L.geoJson(projects, {
+      onEachFeature: function (feature, layer) {
+        let popup =
+          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br>Description: ${layer.feature.properties.description}`;
+        layer.bindPopup(
+          popup); //This code block adds a popup with project title and blurb
+      },
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng);
+      },
+      filter: function (feature) {
+        if (feature.properties.taxa.reptiles) {
+          return feature;
+        }
+      },
+      style: function (feature) {
+        return {
+          color: '#FFFFFF',
+          fillColor: '#000000',
+          weight: 2,
+          stroke: 1,
+          fillOpacity: .8,
+
+        }
+      }
+    }).addTo(map);
+
+    //Define outside the geoJson
+    function getRadius(val) {
+      var radius = Math.sqrt(val / Math.PI);
+      return radius * .8;
+    }
+
+
+      //***********
+    //Mussels Layer; GeoJSON
+    //***********
+    var musselslayer = L.geoJson(projects, {
+      onEachFeature: function (feature, layer) {
+        let popup =
+          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br>Description: ${layer.feature.properties.description}`;
+        layer.bindPopup(
+          popup); //This code block adds a popup with project title and blurb
+      },
+      pointToLayer: function (feature, latlng) {
+        return L.circleMarker(latlng);
+      },
+      filter: function (feature) {
+        if (feature.properties.taxa.mussels) {
+          return feature;
+        }
+      },
+      style: function (feature) {
+        return {
+          color: '#FFFFFF',
+          fillColor: '#00FFFF',
+          weight: 2,
+          stroke: 1,
+          fillOpacity: .8,
+
+        }
+      }
+    }).addTo(map);
+
+    //Define outside the geoJson
+    function getRadius(val) {
+      var radius = Math.sqrt(val / Math.PI);
+      return radius * .8;
+    }
+
+
 
 
 
     //***********************************************************************
 
 
-    //Add county layer
-    fetch("data/us-counties.json")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (counties) {
-        const dataLayer = L.geoJson(counties, {
-          style: function (feature) {
-            return {
-              color: "#dddddd",
-              weight: 0.1,
-              fillOpacity: 0,
-              fillColor: "#1f78b4",
-            };
-          },
-        }).addTo(map);
-        // call to new function here gets the data out of the
-        // callback function
-        drawMap(dataLayer);
-        //Add states layer
+//     //Add county layer
+//     fetch("data/us-counties.json")
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (counties) {
+//         const dataLayer = L.geoJson(counties, {
+//           style: function (feature) {
+//             return {
+//               color: "#dddddd",
+//               weight: 0.1,
+//               fillOpacity: 0,
+//               fillColor: "#1f78b4",
+//             };
+//           },
+//         }).addTo(map);
+//         // call to new function here gets the data out of the
+//         // callback function
+//         drawMap(dataLayer);
+//         //Add states layer
     
-      });
+//       });
 
 
-    function drawMap(dataLayer) {
-      // we now have access to dataLayer here!
-    }
+//     function drawMap(dataLayer) {
+//       // we now have access to dataLayer here!
+//     }
 
 
-//Add states layer
-    fetch("data/us_states_500k.geojson")
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (state) {
-        const dataLayer2 = L.geoJson(state, {
-          style: function (feature) {
-            return {
-              color: "#dddddd",
-              weight: 0.5,
-              fillOpacity: 0,
-              fillColor: "#1f78b4",
-            };
-          },
-        }).addTo(map);
-        // call to new function here gets the data out of the
-        // callback function
-        drawMap(dataLayer2);
+// //Add states layer
+// fetch("data/us_states_500k.geojson")
+//        .then(function (response) {
+//          return response.json();
+//        })
+//        .then(function (state) {
+//          const dataLayer2 = L.geoJson(state, {
+//            style: function (feature) {
+//              return {
+//                color: "#dddddd",
+//                weight: 0.5,
+//                fillOpacity: 0,
+//                fillColor: "#1f78b4",
+//              };
+//            },
+//          }).addTo(map);
+//          // call to new function here gets the data out of the
+//          // callback function
+//          drawMap(dataLayer2);
       
-      });
+//        });
 
-      function drawMap(dataLayer2) {
-      // we now have access to dataLayer here!
-    }
+//        function drawMap(dataLayer2) {
+//        // we now have access to dataLayer here!
+//      }
 
 
 
@@ -343,13 +417,17 @@
     //*******************************************************************
     //Making the Interactive Legend
     var sourcesLayers = {
-      "Projects": projects
+      "Amphibians": amphibianslayer,
+      "Reptiles": reptileslayer,
+      "Mussels": musselslayer
     }
 
     //Legend with CSS code
     //Color matches color within map
     var sourcesLayers = {
-      "<b style='color:#0000FF'>Projects</b>": projects
+      "<b style='color:#0000FF'>Amphibians</b>": amphibianslayer,
+      "<b style='color:#000000'>Reptiles</b>": reptileslayer,
+      "<b style='color:#00FFFF'>Mussels</b>": musselslayer
     }
 
 
@@ -365,19 +443,54 @@
 
     //Visual affordance with mouseover/mouseout
     //Turns gray on mouseover
-    projects.on('mouseover', function () {
+    amphibianslayer.on('mouseover', function () {
       console.log(this)
       this.setStyle({
-        color: "gray",
+        color: "white",
         fillColor: "gray"
       })
     })
     //Re-sets style to blue
-    projects.on('mouseout', function () {
+    amphibianslayer.on('mouseout', function () {
       console.log(this)
       this.resetStyle()
     })
 
+
+    //Turns gray on mouseover
+    reptileslayer.on('mouseover', function () {
+      console.log(this)
+      this.setStyle({
+        color: "white",
+        fillColor: "green"
+      })
+    })
+    //Re-sets style to blue
+    reptileslayer.on('mouseout', function () {
+      console.log(this)
+      this.resetStyle()
+    })
+
+
+    //Turns gray on mouseover
+    musselslayer.on('mouseover', function () {
+      console.log(this)
+      this.setStyle({
+        color: "white",
+        fillColor: "brown"
+      })
+    })
+    //Re-sets style to blue
+    musselslayer.on('mouseout', function () {
+      console.log(this)
+      this.resetStyle()
+    })
+
+
+
+
+
+    
     
   </script>
 
