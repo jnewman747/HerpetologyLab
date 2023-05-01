@@ -147,6 +147,21 @@
       display: table;
       clear: both;
     }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media (max-width: 852px) {
+      .column,
+      .first-column {
+        width: 100%;
+        padding: 0;
+      }
+    }
+
+    .leaflet-control-layers-list {
+      width: 140px;
+      font-family:  "Roboto", sans-serif;
+    }
+      
   </style>
 </head>
 
