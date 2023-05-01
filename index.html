@@ -239,7 +239,7 @@
     var amphibianslayer = L.geoJson(projects, {
       onEachFeature: function (feature, layer) {
         let popup =
-          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br>Description: ${layer.feature.properties.description}`;
+          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br><br>Description: ${layer.feature.properties.description}`;
         layer.bindPopup(
           popup); //This code block adds a popup with project title and blurb
       },
@@ -277,7 +277,7 @@
     var reptileslayer = L.geoJson(projects, {
       onEachFeature: function (feature, layer) {
         let popup =
-          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br>Description: ${layer.feature.properties.description}`;
+          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br><br>Description: ${layer.feature.properties.description}`;
         layer.bindPopup(
           popup); //This code block adds a popup with project title and blurb
       },
@@ -314,7 +314,7 @@
     var musselslayer = L.geoJson(projects, {
       onEachFeature: function (feature, layer) {
         let popup =
-          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br>Description: ${layer.feature.properties.description}`;
+          `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br><br>Description: ${layer.feature.properties.description}`;
         layer.bindPopup(
           popup); //This code block adds a popup with project title and blurb
       },
