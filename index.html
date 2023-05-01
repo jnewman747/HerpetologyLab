@@ -351,60 +351,62 @@
     //***********************************************************************
 
 
-//     //Add county layer
-//     fetch("data/us-counties.json")
-//       .then(function (response) {
-//         return response.json();
-//       })
-//       .then(function (counties) {
-//         const dataLayer = L.geoJson(counties, {
-//           style: function (feature) {
-//             return {
-//               color: "#dddddd",
-//               weight: 0.1,
-//               fillOpacity: 0,
-//               fillColor: "#1f78b4",
-//             };
-//           },
-//         }).addTo(map);
-//         // call to new function here gets the data out of the
-//         // callback function
-//         drawMap(dataLayer);
-//         //Add states layer
+    //Add county layer
+    fetch("data/us-counties.json")
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (counties) {
+        const dataLayer = L.geoJson(counties, {
+          style: function (feature) {
+            return {
+              color: "#dddddd",
+              weight: 0.1,
+              fillOpacity: 0,
+              fillColor: "#1f78b4",
+              interactive: false,
+            };
+          },
+        }).addTo(map);
+        // call to new function here gets the data out of the
+        // callback function
+        // drawMap(dataLayer);
+        //Add states layer
     
-//       });
+      });
 
 
-//     function drawMap(dataLayer) {
-//       // we now have access to dataLayer here!
-//     }
+    // function drawMap(dataLayer) {
+    //   // we now have access to dataLayer here!
+    // }
 
 
-// //Add states layer
-// fetch("data/us_states_500k.geojson")
-//        .then(function (response) {
-//          return response.json();
-//        })
-//        .then(function (state) {
-//          const dataLayer2 = L.geoJson(state, {
-//            style: function (feature) {
-//              return {
-//                color: "#dddddd",
-//                weight: 0.5,
-//                fillOpacity: 0,
-//                fillColor: "#1f78b4",
-//              };
-//            },
-//          }).addTo(map);
-//          // call to new function here gets the data out of the
-//          // callback function
-//          drawMap(dataLayer2);
+//Add states layer
+fetch("data/us_states_500k.geojson")
+       .then(function (response) {
+         return response.json();
+       })
+       .then(function (state) {
+         const dataLayer2 = L.geoJson(state, {
+           style: function (feature) {
+             return {
+               color: "#dddddd",
+               weight: 0.5,
+               fillOpacity: 0,
+               fillColor: "#1f78b4",
+               interactive: false,
+             };
+           },
+         }).addTo(map);
+         // call to new function here gets the data out of the
+         // callback function
+        //  drawMap(dataLayer2);
       
-//        });
+       });
 
-//        function drawMap(dataLayer2) {
-//        // we now have access to dataLayer here!
-//      }
+    //    function drawMap(dataLayer2) {
+    //    // we now have access to dataLayer here!
+    //  }
 
 
 
