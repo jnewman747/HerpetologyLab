@@ -35,7 +35,7 @@ This map is necessary to highlight research in the Herpetology Lab at the Univer
 I'm designing this map because I am a Research Analyst in the Price lab and thus I'm familiar with Dr. Price and his research projects. I myself am a conservation biologist who is passionate about preserving wildlife, paticularly herpetofauna. I have 10+ years of experience working with threatened and endangered species.
 
 
-I expect the user of this map to be researchers (i.e., principal investigators, graduate students), state agencies, and the general public (i.e., naturalists). I would expect user needs to be variable. For example, graduate students would be interested in the description of projects to narrow down their graduate search for a potential advisor.Non-profits, on the other hand, might be more interested in using the information for a public outreach tool (i.e., "Have you seen this critter?"). State agencies may be interested in the information while they create their State Wildlife Action Plans to conserve wildlife.
+I expect the user of this map to be researchers (i.e., principal investigators, graduate students), state agencies, and the general public (i.e., naturalists). I would expect user needs to be variable. For example, graduate students would be interested in the description of projects to narrow down their graduate search for a potential advisor. Non-profits, on the other hand, might be more interested in using the information for a public outreach tool (i.e., "Have you seen this critter?"). State agencies may be interested in the information while they create their State Wildlife Action Plans to conserve wildlife.
 
 ## Technology Stack
 
