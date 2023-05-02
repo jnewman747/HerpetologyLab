@@ -150,6 +150,7 @@
 
     /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
     @media (max-width: 852px) {
+
       .column,
       .first-column {
         width: 100%;
@@ -159,9 +160,8 @@
 
     .leaflet-control-layers-list {
       width: 140px;
-      font-family:  "Roboto", sans-serif;
+      font-family: "Roboto", sans-serif;
     }
-      
   </style>
 </head>
 
@@ -191,7 +191,9 @@
         <p>Information from this map was collected from the <a
             href="https://pricelab.ca.uky.edu/research-topics-and-current-projects">Price Lab</a></li>.
           Additional information about individual projects can be found <a
-            href="https://pricelab.ca.uky.edu/publications">here</a></li>.
+            href="https://pricelab.ca.uky.edu/publications">here.</a></li> State and county layer data were accessed from the <a
+            href="https://www.census.gov/data.html">Census Bureau.</a></li>
+            
         </p>
         <p>Map authored by Jill Newman</p>
 
@@ -382,18 +384,18 @@
         }).addTo(map);
         // call to new function here gets the data out of the
         // callback function
-         drawMap(dataLayer);
+        drawMap(dataLayer);
       });
 
 
-     function drawMap(dataLayer) {
-    //   // we now have access to dataLayer here!
-     }
+    function drawMap(dataLayer) {
+      //   // we now have access to dataLayer here!
+    }
 
 
-   
 
-  
+
+
 
 
     //Add states layer
@@ -415,14 +417,14 @@
         }).addTo(map);
         // call to new function here gets the data out of the
         // callback function
-          drawMap(dataLayer2);
+        drawMap(dataLayer2);
 
 
       });
 
-       function drawMap(dataLayer2) {
-    //    // we now have access to dataLayer here!
-      }
+    function drawMap(dataLayer2) {
+      //    // we now have access to dataLayer here!
+    }
 
 
 
@@ -503,13 +505,6 @@
       console.log(this)
       this.resetStyle()
     })
-
-
-
-
-
-
-
   </script>
 
 </body>
