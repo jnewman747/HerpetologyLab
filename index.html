@@ -254,7 +254,7 @@
         let popup =
           `${layer.feature.properties.title}<br>${layer.feature.properties.years}<br><br>Description: ${layer.feature.properties.description}`;
         layer.bindPopup(
-          popup); //This code block adds a popup with project title and blurb
+          popup); //This code block adds a popup with project title, year and blurb
       },
       pointToLayer: function (feature, latlng) {
         return L.circleMarker(latlng);
